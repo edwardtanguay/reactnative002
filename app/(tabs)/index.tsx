@@ -1,9 +1,12 @@
-import { Image, StyleSheet, Platform } from 'react-native';
+import { Image, StyleSheet, Platform, View, Text } from 'react-native';
 
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import { CheckRow } from '@/components/CheckRow';
+import { MaterialUiShowcase } from '@/components/MateriaUiShowcase';
+
 
 export default function HomeScreen() {
   return (
@@ -19,10 +22,24 @@ export default function HomeScreen() {
         <ThemedText type="title">React Native 002</ThemedText>
         <HelloWave />
       </ThemedView>
+      <View>
+        <Text style={styles.h3}>Custom Components</Text>
+        <CheckRow text="Item 001" color="red"/>
+        <CheckRow text="Item 002" color="blue"/>
+        <CheckRow text="Item 003" color="green"/>
+        <CheckRow text="Item 004" color="purple"/>
+        <CheckRow text="Item 005" color="gray"/>
+        <CheckRow text="Item 006" color="orange"/>
+      </View>
+      <View>
+        <Text style={styles.h3}>Material UI</Text>
+        <MaterialUiShowcase/>
+      </View>
+        <Text style={styles.h3}>Original Page</Text>
       <ThemedView style={styles.stepContainer}>
         <ThemedText type="subtitle">Step 1: Try it</ThemedText>
         <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
+          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see TESTING7777 changes.
           Press{' '}
           <ThemedText type="defaultSemiBold">
             {Platform.select({ ios: 'cmd + d', android: 'cmd + m' })}
@@ -59,6 +76,7 @@ const styles = StyleSheet.create({
   stepContainer: {
     gap: 8,
     marginBottom: 8,
+    padding: 10,
   },
   reactLogo: {
     height: 178,
@@ -67,4 +85,13 @@ const styles = StyleSheet.create({
     left: 0,
     position: 'absolute',
   },
+  h3: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 5,
+    backgroundColor: '#ddd',
+    padding: 2,
+    paddingLeft: 6,
+    borderRadius: 5
+  }
 });

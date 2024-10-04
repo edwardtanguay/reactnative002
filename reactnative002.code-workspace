@@ -19,8 +19,9 @@
 				"promptOnClose": true,
 				"presentation": {
 					"panel": "shared"
-				}
-			},
+				},
+				"problemMatcher": []
+			}
 		]
 	}
 }
