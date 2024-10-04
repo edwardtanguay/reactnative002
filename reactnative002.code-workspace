@@ -1,0 +1,26 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.exclude": {
+			"**/node_modules": true
+		}
+	},
+	"tasks": {
+		"version": "2.0.0",
+		"tasks": [
+			{
+				"label": "Development",
+				"type": "shell",
+				"command": "npm i && npx expo start",
+				"promptOnClose": true,
+				"presentation": {
+					"panel": "shared"
+				}
+			},
+		]
+	}
+}
