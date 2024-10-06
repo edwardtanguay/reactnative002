@@ -1,4 +1,5 @@
 import { Image, StyleSheet, Platform, View, Text } from 'react-native';
+import {useTypedStoreState} from '../../store/hooks';
 
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
@@ -9,6 +10,8 @@ import { MaterialUiShowcase } from '@/components/MateriaUiShowcase';
 
 
 export default function HomeScreen() {
+  const {message} = useTypedStoreState((state) => state.mainModel);
+  
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
@@ -21,6 +24,9 @@ export default function HomeScreen() {
       <ThemedView style={styles.titleContainer}>
         <ThemedText type="title">React Native 002</ThemedText>
         <HelloWave />
+      </ThemedView>
+      <ThemedView style={styles.titleContainer}>
+        <Text>{message}</Text>
       </ThemedView>
       <View>
         <Text style={styles.h3}>Custom Components</Text>
