@@ -1,5 +1,5 @@
 import { Image, StyleSheet, Platform, View, Text } from 'react-native';
-import {useTypedStoreState} from '../../store/hooks';
+import {useTypedStoreActions, useTypedStoreState} from '../../store/hooks';
 
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
@@ -7,10 +7,12 @@ import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { CheckRow } from '@/components/CheckRow';
 import { MaterialUiShowcase } from '@/components/MateriaUiShowcase';
+import { Button } from '@react-native-material/core';
 
 
 export default function HomeScreen() {
   const {message} = useTypedStoreState((state) => state.mainModel);
+  const {setMessage} = useTypedStoreActions((actions) => actions.mainModel);
   
   return (
     <ParallaxScrollView
@@ -27,6 +29,9 @@ export default function HomeScreen() {
       </ThemedView>
       <ThemedView style={styles.titleContainer}>
         <Text>{message}</Text>
+      </ThemedView>
+      <ThemedView style={styles.titleContainer}>
+            <Button style={styles.normalButton} title="Add exclamation mark" onPress={() => setMessage(`${message}!`)} />
       </ThemedView>
       <View>
         <Text style={styles.h3}>Custom Components</Text>
@@ -99,5 +104,12 @@ const styles = StyleSheet.create({
     padding: 2,
     paddingLeft: 6,
     borderRadius: 5
-  }
+  },
+    normalText: {
+        fontSize: 24,
+        marginBottom: 6 
+    },
+    normalButton: {
+        marginBottom: 6
+    }
 });
