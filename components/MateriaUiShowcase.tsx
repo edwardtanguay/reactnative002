@@ -1,9 +1,11 @@
 import { View, Text, StyleSheet } from "react-native";
 import { Button } from "@react-native-material/core";
-import { useState } from "react";
+import {useTypedStoreActions, useTypedStoreState} from '../store/hooks';
 
 export const MaterialUiShowcase = () => {
-    const [count, setCount] = useState(0);
+  const {count} = useTypedStoreState((state) => state.mainModel);
+  const {setCount} = useTypedStoreActions((actions) => actions.mainModel);
+    
 
     const handleIncrement = () => {
         setCount(count + 1);

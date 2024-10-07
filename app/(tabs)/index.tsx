@@ -13,6 +13,7 @@ import { Button } from '@react-native-material/core';
 export default function HomeScreen() {
   const {message} = useTypedStoreState((state) => state.mainModel);
   const {setMessage} = useTypedStoreActions((actions) => actions.mainModel);
+  const {resetAll} = useTypedStoreActions((actions) => actions.mainModel);
   
   return (
     <ParallaxScrollView
@@ -24,7 +25,7 @@ export default function HomeScreen() {
         />
       }>
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">React Native 002</ThemedText>
+        <ThemedText type="title">React Native 002.01</ThemedText>
         <HelloWave />
       </ThemedView>
       <ThemedView style={styles.titleContainer}>
@@ -32,6 +33,9 @@ export default function HomeScreen() {
       </ThemedView>
       <ThemedView style={styles.titleContainer}>
             <Button style={styles.normalButton} title="Add exclamation mark" onPress={() => setMessage(`${message}!`)} />
+      </ThemedView>
+      <ThemedView style={styles.titleContainer}>
+            <Button style={styles.normalButton} title="reset all state" onPress={() => resetAll()} />
       </ThemedView>
       <View>
         <Text style={styles.h3}>Custom Components</Text>
